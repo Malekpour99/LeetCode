@@ -14,3 +14,17 @@ def canJump(nums: list[int]) -> bool:
             if max_reach <= i:
                 return False
     return False
+
+
+# A simple optimized solution for Leet Code ->
+class Solution:
+    def canJump(self, nums: list[int]) -> bool:
+        gas = 0
+        for n in nums:
+            if gas < 0:
+                return False
+            elif n > gas:
+                gas = n
+            gas -= 1
+
+        return True
