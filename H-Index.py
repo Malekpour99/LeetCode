@@ -16,3 +16,13 @@ def hIndex(citations: list[int]) -> int:
                 h_index = min(key, value)
 
     return h_index
+
+
+def hIndex(citations: list[int]) -> int:
+        n = len(citations)
+        citations.sort()
+
+        for i,v in enumerate(citations):
+            if n - i <= v:
+                return n - i
+        return 0
