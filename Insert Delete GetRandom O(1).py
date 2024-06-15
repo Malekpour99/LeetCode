@@ -30,3 +30,16 @@ class RandomizedSet:
     def getRandom(self) -> int:
         i = random.randrange(len(self.lst))
         return self.lst[i]
+
+
+# Optimized remove
+# by replacing the target with the last element and popping the last
+# element to prevent duplications and updating its index in the num_map
+def remove(self, val: int) -> bool:
+    if val in self.num_map:
+        place = self.num_map[val]
+        self.lst[place] = self.lst[-1]
+        self.num_map[self.lst[-1]] = place
+        self.lst.pop()
+        return True
+    return False
